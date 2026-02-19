@@ -1,18 +1,25 @@
+// Online C++ compiler to run C++ program online
 #include <iostream>
 #include <vector>
+#include <climits>
 
 using namespace std;
-int main(){
+int smallestEle(vector<int>&);
+int main() {
+    
     vector<int> arr;
     int ele;
     while(cin>>ele){
         arr.push_back(ele);
     }
-    int smallest = arr[0];
-    for(int i=1; i<arr.size(); i++){
-        if(arr[i]<smallest){
-            smallest = arr[i];
-        }
-    }
+    cout<<"\n\n\t\tThe smallest element of the array is : "<<smallestEle(arr);
     return 0;
+}
+
+int smallestEle(vector<int>& arr){
+    int ele=INT_MAX;
+    for(auto &it:arr){
+        ele=min(ele,it);
+    }
+    return ele;
 }
